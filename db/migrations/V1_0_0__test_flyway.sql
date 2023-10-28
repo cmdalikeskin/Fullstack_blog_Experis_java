@@ -1,0 +1,29 @@
+--CREATE TABLE authors (
+--    id SERIAL PRIMARY KEY,
+--    first_name TEXT,
+--    last_name TEXT,
+--    email TEXT UNIQUE NOT NULL,
+--    created_at TEXT,
+--	updated_at TEXT
+--    );
+--
+--
+--
+--create table Blogs(
+--id serial PRIMARY KEY,
+--slug TEXT,
+--banner_url TEXT,
+--title TEXT,
+--summary TEXT,
+--blog_introduction TEXT,
+--blog_body TEXT,
+--blog_conclusion TEXT,
+--created_at TEXT,
+--updated_at TEXT,
+--author_id INTEGER,
+--FOREIGN KEY (author_id) REFERENCES authors(id)
+--);
+--
+--drop table blogs;
+--
+--ALTER SEQUENCE blogs_id_seq RESTART WITH 1;
