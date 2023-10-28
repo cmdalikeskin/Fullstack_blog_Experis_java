@@ -42,3 +42,7 @@ bin/
 .DS_Store
 application.yml
 *.properties
+flyway.conf
+build.gradle
+report.html
+report.json
