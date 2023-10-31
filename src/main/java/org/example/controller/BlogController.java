@@ -21,6 +21,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping
+@CrossOrigin
 public class BlogController {
     @Autowired
     private final BlogRepository blogRepository;
@@ -37,6 +38,7 @@ public class BlogController {
     *******************************/
 
     @GetMapping("/blogs")
+    @CrossOrigin
     public List<Blog> getAll() {
         return this.blogRepository.findAll();
     }
@@ -53,6 +55,7 @@ public class BlogController {
     }
 
     @GetMapping("/admin/{id}")
+    @CrossOrigin
     public Blog getBlogById(@PathVariable int id) {
         Blog blog = null;
         blog = this.blogRepository.findById(id).orElseThrow(
@@ -61,7 +64,9 @@ public class BlogController {
         return blog;
     }
 
+
     @GetMapping("/admin/blogs")
+    @CrossOrigin
     public List<Blog> getAllAdmins() {
         return this.blogRepository.findAll();
     }
@@ -74,6 +79,7 @@ public class BlogController {
 
 
     @PostMapping("/blogs")
+    @CrossOrigin
     @ResponseStatus(HttpStatus.CREATED)
     public Blog blogCreated(@RequestBody Blog newBlog) throws SQLException {
         Author author = this.authorRepository.findByEmail(newBlog.getAuthor().getEmail());
@@ -112,6 +118,7 @@ public class BlogController {
 
 
     @PutMapping("/admin/edit/{id}")
+    @CrossOrigin
     public ResponseEntity<Blog> updateMovie(@PathVariable int id, @RequestBody Blog blog) {
         Blog blogToUpdate = this.blogRepository.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Movie was not found")
@@ -160,6 +167,7 @@ public class BlogController {
 
 
     @DeleteMapping("/admin/edit")
+    @CrossOrigin
     @Transactional
     public List<Blog> deleteBlogsWithIds(@RequestBody List<Integer> ids) {
         List<Blog> blogsToBeDeleted = new ArrayList<>();
